@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include "mpi.h"
+#include <math.h>
+
+int main(int argc, char* argv[]) {
+	MPI_Init(&argc, &argv);
+	int rank, size;
+	MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+	MPI_Comm_size(MPI_COMM_WORLD, &size);
+	int N = -1;
+	if (rank == 0) {
+		while (N % size != 0) {
+			printf("Segment number (divisible by %d): ", size);
+			fflush(stdout);
+			scanf("%d", &N);
+		}
+	}
+	MPI_Bcast(&N, 1, MPI_INT, 0, MPI_COMM_WORLD);
+	double h = 1 / (double)N;
+	double start_h = h * rank;
+	double s = 0;
+	for (int i = 0; i < N / size; i++) {
+		s += (4 * h / (1 + pow(start_h + h / 2 + (double)i * (double)size / (double)N, 2)));
+	}
+	double pi;
+	MPI_Reduce(&s, &pi, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+	if (rank == 0) {
+		printf("Pi = %lf\n", pi);
+	}
+	MPI_Finalize();
+}

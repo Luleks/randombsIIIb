@@ -1,0 +1,85 @@
+#include "mpi.h"
+
+MPI_Init(&argc, &argv) - inicijalizacija MPI okruzenja
+MPI_Finalize() - zatvaranje svih MPI komunikacija, brisanje svih MPI struktura
+
+MPI_Comm_rank(komunikator, int* rank);
+MPI_Comm_size(komunikator, int* size);
+default komunikator MPI_COMM_WORLD
+
+Svaka MPI funkcija vraca int, ako je uspesno izvrsena on je MPI_SUCCESS
+
+Osnovni tipovi:
+MPI_CHAR	MPI_SHORT		MPI_INT
+MPI_LONG	MPI_UNSIGNED_CHAR	MPI_UNSIGNED_SHORT
+MPI_UNSIGNED	MPI_UNSIGNED_LONG	MPI_FLOAT
+MPI_DOUBLE	MPI_LONG_DOUBLE		MPI_BYTE		MPI_PACKED
+
+
+int MPI_Send(void* buf, int count, MPI_Datatype dtype, int dest, int tag, MPI_Comm comm);
+buf mesto u memoriji odakle pocinje count podataka tipa dtype
+dest rang procesa kome se salje poruka
+tag proizvoljan broj koji sluzi za prepoznavanje odgovarajuce poruke na prijemu
+comm komunikator u okviru koga se obavlja komunikacija
+
+int MPI_Recv(void* buf, int count, MPI_Datatype dtype, int source, int tag, MPI_Comm comm, MPI_Status* status);
+buf mesto u memoriji odakle pocinje prouka koja se prima
+count maksimalan broj podataka tipa dtype koji moze da se procita
+source rank izvora poruke
+tag oznaka poruke
+comm komunikator
+Moguce je i da se koristi MPI_ANY_SOURCE i MPI_ANY_TAG. Tada argument status daje informaciju o izvoru i 
+poruci koja je primljena. status.MPI_TAG, status.MPI_SOURCE
+
+int MPI_Get_count(MPI_Status* status, MPI_Datatyle dtype, int* count);
+status = status of recieve op
+count - broj primljenih podataka
+
+int MPI_Isend(void* buf, int count, MPI_Datatype dtype, int dest, int tag, MPI_Comm comm, MPI_Request* request);
+request je identifikator komunikacionog dogadjaja. Na osnovu njega se proverava status operacije i eventualno kompletiranje
+
+int MPI_Irecv(void* buf, int count, MPI_Datatype dtype, int source, int tag, MPI_comm comm, MPI_Request* request);
+
+int MPI_Wait(MPI_Request* request, MPI_Status* status);
+Ako je request za Irecv, tada ce status da sadrzi info o izvoru poruke, oznaci poruke i broju primljenih bajtova
+Ako je request za Isend, tada ce status da sadrzi info o gresci
+
+int MPI_Test(MPI_Request*, int* flag, MPI_Status* status);
+flag je postavljen na 1 ako je request zavrsen, a na 0 ako nije zavrsen
+
+
+--------------------------------------------------------------------
+GRUPNE OPERACIJE
+Grupne operacije se primenjuju nad svim clanovima grupe i izvrsavaju se kada svi procesi pozovu funkciju.
+int MPI_Barrier(MPI_Comm comm);  - barijera, svi procesi se blokiraju dok se svi ne blokiraju na barijeri
+
+
+int MPI_Reduce(void* send_buffer, void* recv_buffer, int count, MPI_Datatype dtype, MPI_Op operation, int rank, MPI_Comm comm);
+send_buffer-adresa send bafera svih procesa gde se nalaze podaci nad kojima se obavlja operacija redukcije
+recv_buffer-adresa receive bafera root procesa
+count-broj podataka u send i receive baferu
+datatype-tip podataka u send i receive baferu
+comm-komunikator
+rank-identifikator root procesa
+
+Operacije: MPI_MAX, MPI_MIN, MPI_SUM, MPI_PROD, MPI_LAND, MPI_LOR, MPI_LXOR, MPI_BAND, MPI_BOR, MPI_BXOR, MPI_MINLOC, MPI_MAXLOC
+
+
+int MPI_Scan(void* send_buffer, void* recv_buffer, int count, MPI_Datatype dtype, MPI_Op op, MPI_Comm comm);
+Operacija vraća u receive bafer procesa sa rangom i,
+redukciju vrednosti u send baferima sa rangovima 0..i
+
+
+int MPI_Bcast(void* buffer, int count, MPI_Datatyle dtype, int rank, MPI_Comm comm);
+
+int MPI_Scatter(void* send_buffer, int send_count, MPI_Datatype send_type, void* recv_buffer, int recv_count, MPI_Datatype recv_type, int rank, MPI_Comm comm);
+send_buffer -adresa bafera root procesa odakle počinje slanje podataka.
+send_count -koliko podataka se šalje svakom procesu (broj podataka u segmentu)
+send_type- tip podataka koji se šalje
+recv_buffer-adresa prijemnog bafera
+recv_count- koliko podataka se prima u prijemni bafer
+recv_type – tip podatka u prijemnom baferu
+rank-rang root procesa koji šalje podatke
+
+
+int MPI_Gather(void* send_buffer, int send_count, MPI_Datatype send_type, void* recv_buffer, int recv_count, MPI_Datatype recv_type, int rank, MPI_Comm comm);
