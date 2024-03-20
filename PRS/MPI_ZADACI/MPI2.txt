@@ -1,0 +1,65 @@
+int MPI_Type_struct(int count, int* array_of_blocklengths, MPI_Aint* array_of_displacements, 
+		    MPI_Datatype* array_of_types, MPI_Datatype* newtype);
+count - broj blokova u novom tipu
+array_of_blocklengths - svaki clan ovog niza je broj elemenata startog tipa u odgovarajucem bloku
+array_of_types - niz koji se sastoji od elemenata starog tipa koji ucestvuju u kreiranju novog tipa
+newtype - novi tip
+array_of_displacements - niz pomeraja svakog bloka u odnosu nna pocetnu adresu strukture izrazen u
+bajtovima koji se dobija uz pomoc funkcije
+
+MPI_Address(void* location, MPI_Aint* address);
+
+
+MPI_Type_contiguous(int count, MPI_Datatype oldtype, MPI_Datatype* newtype);
+
+MPI_Type_vector(int count, int blocklength, int stride, MPI_Datatype oldtype, MPI_Datatype* newtype);
+count - broj blokova
+blocklength - broj elemenata starog tipa u svakom bloku
+stride - broj elemenata starog tipa izmedju pocetka dva bloka
+oldtype - stari tip
+newtype - novi tip
+
+MPI_Type_indexed(int count, int* array_of_blocklengths, int* array_of_displacements, MPI_Datatype oldtype,
+		MPI_Datatype* newtype);
+count - broj blokova
+array_of_blocklengths - niz ciji su elementi brojevi elemenata starog tipa u svakom bloku
+array_of_displacements - niz koji sadrzi pomeraje za svaki blok izrazen u elementima starog tipa
+
+int MPI_Type_commit(MPI_datatype* datatype);
+Pre nego sto se izvedeni tip primeni u MPI fjama, mora biti komitovan
+
+int MPI_Type_create_subarray(int ndims, int* sizes, int* subsizes, int* offsets, int order, MPI_Datatype oldtype,
+			     MPI_Datatype* newtype);
+ndims - broj dimenzija polja, pozitivan broj
+sizes - broj elemenata starog tipa u svakoj dimenziji polja, niz poz brojeva
+subsizes - broj elemenata starog tipa u svakog dimenziji podpolja
+offsets - pocetne koordinate podpolja u svakoj dimenziji
+order - MPI_ORDER_C
+
+int MPI_Type_create_resized(MPI_Datatype oldtype, MPI_Aint lb, MPI_Aint extent, MPI_Datatype *newtype);
+lb - nova donja granica tipa
+extent - nova velicina tipa koja utice na to odakle ce krenuti slanje sledece jedinice novog tipa
+oldtype - stari tip
+newtype - novi tip
+--------------------------------------------------------------------------------------------------------------
+int MPI_Comm_group(MPI_Comm comm, MPI_Group* group); - vraca grupu procesa vezanu za komunikator
+
+int MPI_Group_rank(MPI_Group group, int* rank);
+int MPI_Group_size(MPI_Group group, int* size);
+
+int MPI_Group_excl(MPI_Group group, int count, int* nonmembers, MPI_Group* new_group); - pravi novu grupu tako sto iz
+stare grupe iskljucuje procese koji su definisani sa nonmembers
+
+int MPI_Group_incl(MPI_Group old_group, int count, int* members, MPI_Group* new_group);
+
+int MPI_Group_intersection(MPI_Group group1, MPI_Group group2, MPI_Group* new_group);
+int MPI_Group_union(MPI_Group group1, MPI_Group group2, MPI_Group* new_group);
+int MPI_Group_difference(MPI_Group group1, MPI_Group group2, MPI_Group* new_group);
+
+int MPI_Comm_create(MPI_Comm old_comm, MPI_Group group, MPI_Comm* new_comm);
+
+int MPI_Comm_split(MPI_Comm old_comm, int color, int key, MPI_Comm* new_comm);
+razbija komunikator old_comm na vise delova tako sto svi procesi koji imaju
+istu vrednost za color pripadaju istom podkomunikatoru. Key odredjuje redosled procesa
+podkomunikatorima. Ako je key isti ya sve procese onda redosled procesa
+preuzima iz starog komunikatora
