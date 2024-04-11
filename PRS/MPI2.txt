@@ -63,3 +63,51 @@ razbija komunikator old_comm na vise delova tako sto svi procesi koji imaju
 istu vrednost za color pripadaju istom podkomunikatoru. Key odredjuje redosled procesa
 podkomunikatorima. Ako je key isti ya sve procese onda redosled procesa
 preuzima iz starog komunikatora
+
+
+VIRTUELNI KOMUNIKATORI
+Cartesian topologija
+
+int MPI_Cart_create(MPI_Comm old_comm, int ndims, int* dim_size, int* periods, int reorder, MPI_Comm* comm_cart)
+ndims - broj dimenzija
+dims - polje koje odredjuje broj procesa u svakoj dimenziji
+periods - da li je resetka periodicna ili ne po svakoj dimenziji
+reorder - da li identifikatore procesa preuredjivati ili ne
+
+int MPI_Cart_coords(MPI_Comm comm, int rank, int maxdims, int* coords)
+comm - Cartesian komunikator
+rank - identifikator procesa u grupi koja odgovara komunikatoru
+maxdims - duzina coords vektora
+coords - out vektor
+
+int MPI_Cart_rank(MPI_Comm comm, int* coords, int* rank)
+comm - Cartesian komunikator
+coords - int polje koje predstavlja koordinate
+rank - out rank
+
+int MPI_Cart_shift(MPI_Comm comm, int direction, int disp, int* rank_source, int* rank_dest);
+comm - Cartesian komunikator
+direction - dimenzija duz koje se pomeranje moze obaviti nakon poziva ove funkcije
+disp - korak, moze biti > 0 i < 0, ako je > 0 pomeranje je unapred
+rank_source - identifikator izvornog procesa (od koga prima)
+rank_dest - identifikator odredisnog procesa (kome salje)
+
+
+int MPI_Sendrecv(					int MPI_Sendrecv_replace(
+	void* sendbuf,						void* buf,
+	int sendcount,						int count,
+	MPI_Datatype sendtype,					MPI_Datatype datatype,
+	int dest,						int dest,
+	int sendtag,						int sendtag,
+								int source,
+	void* recvbuf,						int recvtag,
+	int recvcount,						MPI_Comm comm,
+	MPI_Datatype recvtype,					MPI_Status* status
+	int source,						)
+	int recvtag,
+	
+	MPI_Comm comm,
+	MPI_Status* status
+	);
+	
+	
