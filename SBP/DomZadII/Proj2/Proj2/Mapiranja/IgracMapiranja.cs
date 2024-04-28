@@ -20,5 +20,8 @@ public class IgracMapiranja : ClassMap<Igrac> {
         HasMany(x => x.Sesije).KeyColumn("IGRAC_ID").LazyLoad().Cascade.All().Inverse();
         HasMany(x => x.Pomocnici).KeyColumn("IGRAC_ID").LazyLoad().Cascade.All().Inverse();
         HasMany(x => x.Timovi).KeyColumn("IGRAC_ID").LazyLoad().Cascade.All().Inverse();
+        HasMany(x => x.Kupovine).KeyColumn("IGRAC_ID").LazyLoad().Cascade.All().Inverse();
+        HasMany(x => x.KljucniPredmeti).KeyColumn("IGRAC_ID").LazyLoad().Cascade.All().Inverse();
+        HasMany(x => x.Grupe).KeyColumn("IGRAC_ID").LazyLoad().Cascade.All().Inverse();
     }
 }

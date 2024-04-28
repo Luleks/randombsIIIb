@@ -12,4 +12,7 @@ public class Igrac {
     public virtual IList<Sesija> Sesije { get; set; } = [];
     public virtual IList<Pomocnik> Pomocnici { get; set; } = [];
     public virtual IList<TeamMembership> Timovi { get; set; } = [];
+    public virtual IList<JeKupio> Kupovine { get; set; } = [];
+    public virtual IList<Poseduje> KljucniPredmeti { get; set; } = [];
+    public virtual IList<GroupMembership> Grupe { get; set; } = [];
 }

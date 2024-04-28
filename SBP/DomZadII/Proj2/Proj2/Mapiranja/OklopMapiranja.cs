@@ -10,5 +10,7 @@ public class OklopMapiranja : SubclassMap<Oklop> {
         DiscriminatorValue("OKLOP");
 
         Map(x => x.PoeniZaOdbranu).Column("ATK_DEF_POENI");
+
+        HasMany(x => x.Kupovine).KeyColumn("SHOPPABLE_ORUDJE_ID").Cascade.All().Inverse();
     }
 }
