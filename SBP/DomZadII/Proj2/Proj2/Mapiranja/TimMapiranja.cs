@@ -13,7 +13,9 @@ public class TimMapiranja : ClassMap<Tim> {
         Map(x => x.Plasman).Column("PLASMAN");
         Map(x => x.MaxIgraca).Column("MAX_IGRACA");
         Map(x => x.MinIgraca).Column("MIN_IGRACA");
+        Map(x => x.BonusXp).Column("BONUS_XP");
 
+        HasMany(x => x.Clanovi).KeyColumn("TIM_ID").Cascade.All().Inverse();
         HasMany(x => x.HomeBorbe).KeyColumn("TIM1").Cascade.All().Inverse();
         HasMany(x => x.GuestBorbe).KeyColumn("TIM2").Cascade.All().Inverse();
         HasMany(x => x.Pobede).KeyColumn("POBEDNIK").Cascade.All().Inverse();

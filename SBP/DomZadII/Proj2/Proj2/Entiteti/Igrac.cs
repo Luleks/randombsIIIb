@@ -11,4 +11,5 @@ public class Igrac {
     public virtual required Lik Lik { get; set; }
     public virtual IList<Sesija> Sesije { get; set; } = [];
     public virtual IList<Pomocnik> Pomocnici { get; set; } = [];
+    public virtual IList<TeamMembership> Timovi { get; set; } = [];
 }

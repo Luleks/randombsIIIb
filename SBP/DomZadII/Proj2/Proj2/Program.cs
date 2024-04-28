@@ -8,34 +8,24 @@ public static class Program {
         try {
             ISession? s = DataLayer.GetSession();
             if (s == null) {
-                Console.WriteLine("Failed to open session, please try again");
+                Console.WriteLine("Session dud");
                 return;
             }
-            Lik l = new Lik {
-                StepenZamora = 5,
-                Iskustvo = 50,
-                Zlato = 5125,
-                NivoZdravlja = 10,
-                Rasa = null!,
-                Klasa = null!
+
+            var tim = new Tim() {
+                MinIgraca = 5,
+                MaxIgraca = 10,
+                Naziv = "MocniMomci",
+                Plasman = 2
             };
-            Rasa r = new Covek() {
-                Lik = l,
-                Skrivanje = 10
-            };
-            Klasa k = new Lopov() {
-                Lik = l,
-                NivoBuke = 30,
-                NivoZamki = 99
-            };
-            l.Rasa = r;
-            l.Klasa = k;
-            s.Save(l);
+            s.Save(tim);
+
+            s.Flush();
+            s.Close();
         }
         catch (Exception ec) {
-            Console.WriteLine(ec);
+            Console.WriteLine(ec.FormatExceptionMessage());
         }
-        
     }
 }
 
