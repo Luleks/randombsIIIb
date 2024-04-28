@@ -1,3 +1,4 @@
+using System.Configuration;
 using NHibernate;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
@@ -9,29 +10,34 @@ public static class DataLayer {
     private static ISessionFactory? _factory;
     private static readonly object LockObj = new();
 
-    private const string ConnectionString =
-        "Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18630;Password=S18630";
-
-    public static ISession GetSession() {
-        if (_factory != null) return _factory!.OpenSession();
-        
-        lock (LockObj) {
-            _factory ??= CreateSessionFactory();
+    public static ISession? GetSession() {
+        if (_factory == null) {
+            lock (LockObj) {
+                if (_factory == null) {
+                    _factory = CreateSessionFactory();
+                }
+            }
         }
-
-        return _factory!.OpenSession();
+        return _factory?.OpenSession();
     }
 
-    private static ISessionFactory? CreateSessionFactory() {
-        try {
+    private static ISessionFactory? CreateSessionFactory()
+    {
+        try
+        {
+            string cs = ConfigurationManager.ConnectionStrings["OracleCS"].ConnectionString;
             var cfg = OracleManagedDataClientConfiguration.Oracle10
                 .ShowSql()
-                .ConnectionString(c => c.Is(ConnectionString));
+                .ConnectionString(c => c.Is(cs));
 
-            return Fluently.Configure().Database(cfg).Mappings(m => m.FluentMappings.AddFromAssemblyOf<RasaMapiranja>())
+            return Fluently.Configure()
+                .Database(cfg)
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<LikMapiranja>())
                 .BuildSessionFactory();
         }
-        catch (Exception ec) {
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
             return null;
         }
     }

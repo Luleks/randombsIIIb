@@ -5,7 +5,7 @@ namespace Proj2.Mapiranja;
 
 public class VilenjakMapiranja : SubclassMap<Vilenjak> {
     public VilenjakMapiranja() {
-        Table("LIK");
+        Table("RASA");
 
         DiscriminatorValue("VILENJAK");
 
