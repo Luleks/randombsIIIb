@@ -7,7 +7,7 @@ public class TimMapiranja : ClassMap<Tim> {
     public TimMapiranja() {
         Table("TIM");
 
-        Id(x => x.Id).GeneratedBy.TriggerIdentity();
+        Id(x => x.Id, "ID").GeneratedBy.TriggerIdentity();
 
         Map(x => x.Naziv).Column("NAZIV");
         Map(x => x.Plasman).Column("PLASMAN");

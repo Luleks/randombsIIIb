@@ -32,7 +32,7 @@ public static class DataLayer {
 
             return Fluently.Configure()
                 .Database(cfg)
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<LikMapiranja>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<IgracMapiranja>())
                 .BuildSessionFactory();
         }
         catch (Exception e)

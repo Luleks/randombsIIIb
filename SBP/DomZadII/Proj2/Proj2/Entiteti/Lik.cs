@@ -6,7 +6,7 @@ public class Lik {
     public virtual int Iskustvo { get; set; }
     public virtual int NivoZdravlja { get; set; }
     public virtual int Zlato { get; set; }
-    public virtual required Rasa Rasa { get; set; } = null!;
-    public virtual required Klasa Klasa { get; set; } = null!;
-    public virtual required Igrac Igrac { get; set; } = null!;
+    public virtual required Rasa Rasa { get; set; }
+    public virtual required Klasa Klasa { get; set; }
+    public virtual required Igrac Igrac { get; set; }
 }

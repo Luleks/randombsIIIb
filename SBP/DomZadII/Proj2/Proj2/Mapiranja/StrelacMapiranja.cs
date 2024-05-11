@@ -4,7 +4,7 @@ using Proj2.Entiteti;
 namespace Proj2.Mapiranja;
 
 public class StrelacMapiranja : SubclassMap<Strelac> {
-    StrelacMapiranja() {
+    public StrelacMapiranja() {
         Table("STRELAC");
         
         Abstract();

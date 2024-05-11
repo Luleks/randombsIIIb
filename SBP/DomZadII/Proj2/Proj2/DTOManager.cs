@@ -4,9 +4,15 @@ using Proj2.Entiteti;
 namespace Proj2;
 
 public static class DTOManager {
-    public static async void dodajIgraca(IgracBasic i) {
+    public static async Task DodajIgraca(IgracBasic i) {
         try {
-            Igrac igrac = new Igrac() {
+            ISession? s = DataLayer.GetSession();
+            if (s == null) {
+                Console.WriteLine("Failed to establish db connection");
+                return;
+            }
+
+            Igrac igrac = new Igrac {
                 Nadimak = i.Nadimak,
                 Ime = i.Ime,
                 Prezime = i.Prezime,
@@ -16,9 +22,12 @@ public static class DTOManager {
                 Lik = null!,
             };
 
+            await s.SaveAsync(igrac);
+            await s.FlushAsync();
+            
             Lik lik = new Lik() {
                 Iskustvo = i.Lik.Iskustvo,
-                Igrac = null!,
+                Igrac = igrac,
                 Klasa = null!,
                 Rasa = null!,
                 NivoZdravlja = i.Lik.NivoZdravlja,
@@ -26,36 +35,28 @@ public static class DTOManager {
                 Zlato = i.Lik.Zlato
             };
 
+            await s.SaveAsync(lik);
+            await s.FlushAsync();
+            
             if (i.Lik.Klasa is LopovBasic) {
                 Lopov lopov = new Lopov() {
-                    Lik = null!,
+                    Lik = igrac.Lik,
                     NivoBuke = ((LopovBasic)i.Lik.Klasa).NivoBuke,
                     NivoZamki = ((LopovBasic)i.Lik.Klasa).NivoZamki
                 };
-                // lopov.Lik = lik;
-                lik.Klasa = lopov;
+                await s.SaveAsync(lopov);
+                await s.FlushAsync();
             }
 
             if (i.Lik.Rasa is PatuljakBasic) {
                 Patuljak patuljak = new Patuljak() {
-                    Lik = null!,
+                    Lik = igrac.Lik,
                     Oruzje = ((PatuljakBasic)i.Lik.Rasa).TipOruzja,
                 };
-                // patuljak.Lik = lik;
-                lik.Rasa = patuljak;
+                await s.SaveAsync(patuljak);
+                await s.FlushAsync();
             }
 
-            igrac.Lik = lik;
-            lik.Igrac = igrac;
-
-            ISession? s = DataLayer.GetSession();
-
-            if (s == null) {
-                Console.WriteLine("Failed to establish Db connection");
-            }
-
-            await s!.SaveAsync(igrac);
-            await s.FlushAsync();
             s.Close();
         }
         catch (Exception ec) {

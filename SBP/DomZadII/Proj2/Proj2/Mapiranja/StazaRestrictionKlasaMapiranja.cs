@@ -11,6 +11,6 @@ public class StazaRestrictionKlasaMapiranja : ClassMap<StazaRestrictionKlasa> {
 
         Map(x => x.Klasa).Column("KLASA");
 
-        References(x => x.Klasa).Column("ORUDJE_ID").LazyLoad();
+        References(x => x.Staza).Column("RESTRICTED_STAZA_ID").LazyLoad();
     }
 }
