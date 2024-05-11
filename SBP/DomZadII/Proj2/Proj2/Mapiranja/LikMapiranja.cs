@@ -16,6 +16,6 @@ public class LikMapiranja : ClassMap<Lik> {
 
         HasOne(x => x.Rasa).PropertyRef(x => x.Id).Cascade.All().Not.LazyLoad();
         HasOne(x => x.Klasa).PropertyRef(x => x.Id).Cascade.All().Not.LazyLoad();
-        References(x => x.Igrac).Column("IGRAC_ID").Unique();
+        References(x => x.Igrac).Column("IGRAC_ID");
     }
 }

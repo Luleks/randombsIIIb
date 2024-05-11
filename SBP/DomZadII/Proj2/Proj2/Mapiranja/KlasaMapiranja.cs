@@ -9,6 +9,6 @@ public class KlasaMapiranja : ClassMap<Klasa> {
         
         Id(x => x.Id, "ID").GeneratedBy.TriggerIdentity();
 
-        References(x => x.Lik, "LIK_ID").Unique();
+        References(x => x.Lik, "LIK_ID");
     }
 }

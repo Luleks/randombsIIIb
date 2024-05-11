@@ -12,6 +12,6 @@ public class RasaMapiranja : ClassMap<Rasa> {
 
         Id(x => x.Id, "ID").GeneratedBy.TriggerIdentity();
 
-        References(x => x.Lik).Column("LIK_ID").Unique();
+        References(x => x.Lik).Column("LIK_ID");
     }
 }
