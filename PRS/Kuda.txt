@@ -1,0 +1,52 @@
+Poziv kernela:
+kernel_routine<<<gridDim, blockDim>>>(args);
+gridDim - broj blokova (velicina grida)
+blockDim - broj niti unutar svakog grida (velicina bloka)
+args - pokazivaci na nizove na gpu, konstante koje se kopiraju po vrednosti
+gridDim i blockDim mogu da budu 2D ili 3D
+
+
+specijalne promenljive
+gridDim - velicina grida
+blockDim - velicina bloka
+blockIdx - indeks bloka
+threadIdx - indeks niti
+warpSize - uvek 32 za sada
+
+
+cudaMalloc() - alocira objekat u globalnoj memoriji uredjaja.
+2 parametra - adresu pointera na alocirani objekat, velicina u bajtovima
+
+cudaFree() - oslobadja objekat iz memorije uredjaja, zahteva pok na obj
+
+cudaMemcpy() - transfer podataka na rel cpu/gpu-cpu/gpu, 4 parametra
+pok na odrediste, pok na izvor, velicina u bajtovima, tip transfera
+Tip transfera:
+cudaMemcpyHostToHost
+cudaMemcpyHostToDevice
+cudaMemcpyDeviceToHost
+cudaMemcpyDeviceToDevice
+
+
+Ispred fja se stavlja kvalifikator
+__global__ - poziva cpu izvrsava gpu, mora biti void, parametri samo skalarni podaci ili pokazivaci na podatke na gpu
+__host__ - poziva cpu izvrsava cpu
+__device__ - poziva i izvrsava uredjaj, ne moze se uzeti adresa, ogranicena rekurzija, ne sme staticke promenljive, ne sme
+
+
+cudaThreadSynchronize() - ceka da sve niti kernela zavrse
+__synchthreads() - nijedna nit iz warpa ne moze da preskoci barijeru dok sve ne stignu do nje
+
+
+Tipovi promenljivih
+__device__ - globalna promenljiva na gpu
+moze da se pribavi sa cudaMemcpyToSymbol cudaMemcpyFromSymbol ili
+cudaMemcpy + cudaGetSymbolAdress
+
+_constant__ - konstante, samo 64Kb, sve niti ih citaju istom brzinom
+Ako radimo sa floatovima 2.0f <- treba f
+
+Deljiva memorija
+__shared__ - podaci kojima moze da pristupaju sve niti jednog bloka
+
+const __restrict__ - read only niz
