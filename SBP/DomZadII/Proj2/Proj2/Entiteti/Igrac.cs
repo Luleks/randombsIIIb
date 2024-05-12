@@ -8,7 +8,7 @@ public class Igrac {
     public virtual required string Ime { get; set; }
     public virtual string? Prezime { get; set; }
     public virtual int Uzrast { get; set; }
-    public virtual required Lik Lik { get; set; }
+    public virtual Lik? Lik { get; set; }
     public virtual IList<Sesija> Sesije { get; set; } = [];
     public virtual IList<Pomocnik> Pomocnici { get; set; } = [];
     public virtual IList<TeamMembership> Timovi { get; set; } = [];

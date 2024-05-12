@@ -26,7 +26,6 @@ __host__ void initAndCall(int* a, int* b, int* n) {
     cudaMalloc((void**)&dev_b, (n[0] - 2) * sizeof(int));
     cudaMalloc((void**)&dev_n, sizeof(int));
     cudaMemcpy(dev_a, a, n[0] * sizeof(int), cudaMemcpyHostToDevice);
-    cudaMemcpy(dev_b, b, (n[0] - 2) * sizeof(int), cudaMemcpyHostToDevice);
     cudaMemcpy(dev_n, n, sizeof(int), cudaMemcpyHostToDevice);
 
     kernel<<<GRID_DIM, BLOCK_DIM>>>(dev_a, dev_b, dev_n);

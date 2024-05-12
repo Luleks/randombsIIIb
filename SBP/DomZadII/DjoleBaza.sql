@@ -1,3 +1,34 @@
+select * from igrac;
+select * from lik;
+select * from lopov;
+select * from rasa;
+
+delete from igrac;
+
+alter table lik
+modify IGRAC_ID NUMBER(5) NULL;
+
+alter table RASA
+modify LIK_ID number(5) null;
+
+alter table LOPOV
+modify LIK_ID number(5) null;
+
+alter table SVESTENIK
+modify LIK_ID number(5) null;
+
+alter table CAROBNJAK
+modify LIK_ID number(5) null;
+
+alter table OKLOPNIK
+modify LIK_ID number(5) null;
+
+alter table BORAC
+modify LIK_ID number(5) null;
+
+alter table STRELAC
+modify LIK_ID number(5) null;
+
 create or replace TRIGGER "IGRA_AUTO_PK" 
     BEFORE INSERT
     ON IGRA
