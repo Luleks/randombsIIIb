@@ -1,33 +1,39 @@
 %%cuda
 #include <stdio.h>
 
-#define BLOCK_SIZE 128
-#define GRID_SIZE 128
+#define GRID_DIM 128
+#define BLOCK_DIM 128
 
-__global__ void kernel(int* A, int* b, int* n) {
-    int tid = threadIdx.x + blockIdx.x * blockDim.x;
+__global__ void kernel(int* a, int* b, int* n) {    
+    __shared__ int local_a[BLOCK_DIM + 2];
 
-    if (tid >= n[0])
-        return;
+    int tid = blockIdx.x * blockDim.x + threadIdx.x;
+    if (tid >= n[0]) return;
+    
+    local_a[threadIdx.x] = a[tid];
 
-    int s = 0;
-    for (int i = 0; i < n[0]; ++i) {
-        s += A[tid + i * gridDim.x];
-    }
-    b[tid] = s;
+    if (threadIdx.x < 2) {
+        local_a[threadIdx.x + blockDim.x] = a[tid + blockDim.x];
+    } 
+
+    __syncthreads();
+
+    int temp = (local_a[threadIdx.x] * local_a[threadIdx.x + 1] * local_a[threadIdx.x + 2])  / 
+        (local_a[threadIdx.x] + local_a[threadIdx.x + 1] + local_a[threadIdx.x + 2
+    b[threadIdx.x] = temp;
 }
 
-__host__ void initAndCall(int* A, int* b, int* n) {
+__host__ void initAndCall(int* a, int* b, int* n) {
     int* dev_a, *dev_b, *dev_n;
-    cudaMalloc((void**)&dev_a, n[0] * n[0] * sizeof(int));
-    cudaMalloc((void**)&dev_b, n[0] * sizeof(int));
+    cudaMalloc((void**)&dev_a, n[0] * sizeof(int));
+    cudaMalloc((void**)&dev_b, (n[0] - 2) * sizeof(int));
     cudaMalloc((void**)&dev_n, sizeof(int));
-    cudaMemcpy(dev_a, A, n[0] * n[0] * sizeof(int), cudaMemcpyHostToDevice);
+    cudaMemcpy(dev_a, a, n[0] * sizeof(int), cudaMemcpyHostToDevice);
     cudaMemcpy(dev_n, n, sizeof(int), cudaMemcpyHostToDevice);
 
-    kernel<<<GRID_SIZE, BLOCK_SIZE>>>(dev_a, dev_b, dev_n);
+    kernel<<<GRID_DIM, BLOCK_DIM>>>(dev_a, dev_b, dev_n);
 
-    cudaMemcpy(b, dev_b, n[0] * sizeof(int), cudaMemcpyDeviceToHost);
+    cudaMemcpy(b, dev_b, (n[0] - 2) * sizeof(int), cudaMemcpyDeviceToHost);
 
     cudaFree(dev_a);
     cudaFree(dev_b);
@@ -35,32 +41,28 @@ __host__ void initAndCall(int* A, int* b, int* n) {
 }
 
 int main() {
-    int* n = (int*)malloc(sizeof(int));
+    int* a, *b, *n;
 
-    n[0] = 10 + rand() % 10;
-    printf("%d\n", n[0]);
+    n = (int*)malloc(sizeof(int));
 
-    int* A, *b;
-    A = (int*)malloc(n[0] * n[0] * sizeof(int));
-    b = (int*)malloc(n[0] * sizeof(int));
+    n[0] = 5 + rand() % 15;
+    printf("%d:\n", n[0]); 
+
+    a = (int*)malloc(n[0] * sizeof(int));
+    b = (int*)malloc((n[0] - 2) * sizeof(int));
 
     for (int i = 0; i < n[0]; ++i) {
-        for (int j = 0; j < n[0]; ++j) {
-            A[i * n[0] + j] = A[i * n[0] + j];
-        }
+        a[i] = i;
     }
-    for (int i = 0; i < n[0]; ++i) {
-        for (int j = 0; j < n[0]; ++j) {
-            printf("%d ", A[i * n[0] + j]);
-        }
-        printf("\n");
-    }
-    initAndCall(A, b, n);
 
-    for (int i = 0; i < n[0]; ++i) {
+    initAndCall(a, b, n);
+
+    for (int i = 0; i < n[0] - 2; ++i) {
         printf("%d ", b[i]);
     }
     printf("\n");
 
-    return 0;
+    free(a);
+    free(b);
+    free(n);
 }
