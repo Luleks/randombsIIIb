@@ -1,0 +1,95 @@
+Za kreiranje tima niti koristi se direktiva parallel
+
+#pragma omp parallel [odredba [[,] odredba]...] novi_red
+{
+    blok_naredbi
+}
+
+odredba moze biti - if, private, firstprivate, default, shared, reduction, num_threads
+Na kraju paralelnog regiona postoji implicitna barijera
+
+Odredbe:
+If odredba - ako uslov u if nije ispunjen kod se izvrsava sekvencijalno
+
+Private odredba - sluzi za navodjenje privatnih promenljivih za svaku nit (
+    svaka nit ce imati svoju kopiju privatne promenljive). po defaultu su private:
+    indeksna promenljiva petlje koja se inicijalizuje
+    promenljive definisane unutar strukturnog bloka paralelnog regiona
+    promenljive unutar fje koja se poziva u okviru paralelnog regiona
+
+Firstprivate odredba ima isto znacenje kao private, samo sto se promenljive
+inicijalizuju vrednostima koje su imale pre ulaska u paralelnu oblast
+
+Shared odredba - zajednicke promenljive za sve niti u timu. sve promenljive van paralelnog bloka
+su po defaultu shared
+
+Default odredba - default(shared | none)
+shared - ako zelimo da vecina promenljivih u paralelnom bloku bude shared, a u nastavku navodimo
+samo one koje su privatne
+none - za svaku promenljivu se mora specificirati oblast vazenja
+
+num_threads(broj_niti) odredba - postavlja broj niti za izvrsenje u paralelnom bloku
+
+reduction - vrsi redukciju skalarne promenljive 
+reduction(op: lista_promenljivih), op: +, -, *, &, |, ^, &&, ||, max, min
+
+
+DIREKTIVE ZA PODELU POSLA - na kraju postoji implicitna barijera, mora da se nadje u paralelnom regionu
+- for - za distribuciju iteracija izmedju niti
+- sections - za distribuciju nezavisnih radnih jedinica izmedju niti
+- single - taj deo koda izvrsava samo jedna nit u timu
+
+* for
+#pragma omp for [odredbe] odredbe - private, firstprivate, lastprivate, reduction, ordered, schedule, nowait
+{
+    for petlja
+}
+
+moguce je kombinovati parallel i for #pragma omp parallel for
+shedule(kid, [chunksize]) - specificira kako se iteeracije u petlji dele izmedju niti.
+vrednost parametra chunksize mora biti > 0 celobrojna konstanta
+kind - static, dynamic, guided, runtime
+static - nitima se dodeljuju iteracije po round robin principu
+dynamic - iteracije se dodeljuju nitima u toku izvrsenja petlje i ne moze se pretpostaviti
+redosled kojim se iteracije dodeljuju nitima
+guided - iteracije se dodeljuju nitima dinamicki u odnosu na velicinu u opadajucem redosledu
+inicijalno je chunksize n/p i smanjuje se po formuli ki = (1 - 1/p) * ki-1
+runtime - odluka o rasporedjivanju se odlaze do pocetka izvrsenja. nacin rasporedjivanja i 
+velicina poslova odredjuju se na osnovu promenljive okruzenja OMP_SCHEDULE
+
+nowait - uklanja implicitnu barijeru na kraju
+
+* single
+#pragma omp single [odredba]
+{
+    blok_naredbi
+}
+
+* critical
+omogucava da samo jedna nit u jednom trenutku izvrsi deo koda koji sledi nakon ove direktive.
+#pragma omp critical 
+{
+    blok naredbi
+}
+
+* barrier
+#pragma omp barrier 
+{
+
+}
+
+
+TASK direktiva
+redosled izvrsenja taskova je nedefinisan
+#pragma omp task [oredbe]
+if, untied, private, firstprivate, shared, default, depend
+
+#pragma omp task
+{
+
+}
+
+#pragma omp task depend(in: x) depend(out: y) depend(inout: z)
+
+
+Zavisnosti po podacima

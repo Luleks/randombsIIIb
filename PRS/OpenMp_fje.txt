@@ -1,0 +1,4 @@
+omp_get_thread_num() - vraca id niti koja se izvrsava u paralelnom bloku
+omp_set_num_threads(num) - postavlja broj niti na num
+omp_get_num_threads() - vraca broj niti
+omp_get_wtime() - vraca broj sekundi od epic-a
