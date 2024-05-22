@@ -1,0 +1,6 @@
+Jedina izmena u odnosu na prethodnu fazu je način na koji se pamti specijalizacija lika – u odnosu na rasu i klasu. Pošto postoji 6 klasa i 5 rasa, kako bi se izbeglo izvođenje 30 klasa (po jedna za svaku moguću kombinaciju rase i klase), rasa i klasa su izdvojeni kao posebni entiteti koju su specijalizovani i imaju 1:1 vezu sa likom.
+U bazu podataka su takođe dodati triger i sekvence kako bi se primarni ključevi entiteta generisali kao TriggerIdentity.
+
+Napomena: Za testiranje testiranje svih funkcionalnosti u aplikaciji moguće je koristiti pripremljen nalog sa korisničkim imenom "Lule" i šifrom "Sifra".
+
+Napomena: Grafički deo aplikacije izrađene je korišćenjem AvaloniaUI framework-a, uz prethodno dobijenu dozvolu.

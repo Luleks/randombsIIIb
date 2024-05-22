@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SBP2.Views.KlaseUserControls.StrelacUserControl">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 20">Strelac</TextBlock>
+        <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 0 0 10">Luk ili samostrel:</Label>
+        <ComboBox SelectionChanged="LukIliSamostrelCbx_OnSelectionChanged" SelectedIndex="0" Foreground="Black" Background="FloralWhite" x:Name="LukIliSamostrelCbx" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10">
+            <ComboBoxItem>Luk</ComboBoxItem>
+            <ComboBoxItem>Samostrel</ComboBoxItem>
+        </ComboBox>
+    </StackPanel>
+</UserControl>

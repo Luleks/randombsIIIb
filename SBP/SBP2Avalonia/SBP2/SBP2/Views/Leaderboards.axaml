@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        WindowStartupLocation="CenterScreen"
+        Width="914"
+        Height="514"
+        x:Class="SBP2.Views.Leaderboards"
+        Title="Leaderboards">
+        <Window.Background><ImageBrush Source="avares://SBP2/Assets/thumb.jpg"/></Window.Background>
+        <Grid ShowGridLines="True" Name="ContainerGrid"  Margin="5" VerticalAlignment="Center"
+              ColumnDefinitions="457, 457" 
+              RowDefinitions="257, 257">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0">
+                <TextBlock Background="FloralWhite" Foreground="Black" HorizontalAlignment="Center" FontSize="25">Teams with most wins</TextBlock>
+                <DataGrid RowBackground="AntiqueWhite" HorizontalAlignment="Center" MinHeight="180" MaxHeight="180" Name="TeamsWithMostWinsDataGrid" AutoGenerateColumns="True" IsReadOnly="True" GridLinesVisibility="All" BorderThickness="1" BorderBrush="Coral"></DataGrid>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1">
+                <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25">Teams with highest win %</TextBlock>
+                <DataGrid RowBackground="AntiqueWhite" HorizontalAlignment="Center" MinHeight="180" MaxHeight="180" Name="TeamsWithHighestPercentDataGrid" AutoGenerateColumns="True" IsReadOnly="True" GridLinesVisibility="All" BorderThickness="1" BorderBrush="Coral"></DataGrid>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0">
+                <TextBlock Background="White" Foreground="Black" HorizontalAlignment="Center" FontSize="25">Players with most gold</TextBlock>
+                <DataGrid RowBackground="AntiqueWhite" HorizontalAlignment="Center" MinHeight="180" MaxHeight="180" Name="PlayersWithMostGoldDataGrid" AutoGenerateColumns="True" IsReadOnly="True" GridLinesVisibility="All" BorderThickness="1" BorderBrush="Coral"></DataGrid>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
+                <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="25">Players with most xp</TextBlock>
+                <DataGrid RowBackground="AntiqueWhite" HorizontalAlignment="Center" MinHeight="180" MaxHeight="180" Name="PlayersWithMostXpDataGrid" AutoGenerateColumns="True" IsReadOnly="True" GridLinesVisibility="All" BorderThickness="1" BorderBrush="Coral"></DataGrid>
+            </StackPanel>
+        </Grid>
+</Window>

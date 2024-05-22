@@ -1,0 +1,54 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="914"
+        Height="514"
+        x:Class="SBP2.Views.RegisterWindow"
+        WindowStartupLocation="CenterScreen"
+        Title="RegisterWindow">
+        <Window.Background><ImageBrush Source="avares://SBP2/Assets/thumb.jpg"/></Window.Background>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 20">Register</TextBlock>
+                <Grid ShowGridLines="False"  Margin="5" VerticalAlignment="Center"
+                      ColumnDefinitions="100, 200, 100, 200" 
+                      RowDefinitions="Auto, Auto, Auto, Auto">
+                        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Username:</Label>
+                        <TextBox Background="FloralWhite" Grid.Row="0" Grid.Column="1" x:Name="UsernameTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                        <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Password:</Label>
+                        <TextBox Background="FloralWhite" Grid.Row="0" Grid.Column="3" x:Name="PasswordTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Ime:</Label>
+                        <TextBox Background="FloralWhite" Grid.Row="1" Grid.Column="1" x:Name="ImeTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                        <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Prezime:</Label>
+                        <TextBox Background="FloralWhite" Grid.Row="1" Grid.Column="3" x:Name="PrezimeTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                        <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Pol:</Label>
+                        <ComboBox Background="FloralWhite" SelectedIndex="0" Grid.Row="2" Grid.Column="1" x:Name="PolComboBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10">
+                                <ComboBoxItem>M</ComboBoxItem>
+                                <ComboBoxItem>F</ComboBoxItem>
+                        </ComboBox>
+                        <Label Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Uzrast:</Label>
+                        <TextBox Background="FloralWhite" Grid.Row="2" Grid.Column="3" x:Name="UzrastTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                        
+                        <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Rasa:</Label>
+                        <ComboBox Background="FloralWhite" SelectedIndex="0" Grid.Row="3" Grid.Column="1" x:Name="RasaComboBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10">
+                                <ComboBoxItem>Covek</ComboBoxItem>
+                                <ComboBoxItem>Patuljak</ComboBoxItem>
+                                <ComboBoxItem>Vilenjak</ComboBoxItem>
+                                <ComboBoxItem>Ork</ComboBoxItem>
+                                <ComboBoxItem>Demon</ComboBoxItem>
+                        </ComboBox>
+                        <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Klasa:</Label>
+                        <ComboBox Background="FloralWhite" SelectedIndex="0" Grid.Row="3" Grid.Column="3" x:Name="KlasaComboBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10">
+                                <ComboBoxItem>Lopov</ComboBoxItem>
+                                <ComboBoxItem>Svestenik</ComboBoxItem>
+                                <ComboBoxItem>Carobnjak</ComboBoxItem>
+                                <ComboBoxItem>Oklopnik</ComboBoxItem>
+                                <ComboBoxItem>Borac</ComboBoxItem>
+                                <ComboBoxItem>Strelac</ComboBoxItem>
+                        </ComboBox>
+                </Grid>
+                <Button Background="FloralWhite" Click="Next" HorizontalAlignment="Center" Margin="0 20 0 0" Width="100"><TextBlock HorizontalAlignment="Center">Next</TextBlock></Button>
+                <Button Background="FloralWhite" Click="GoBack" HorizontalAlignment="Center" Margin="0 10 0 0" Width="100"><TextBlock HorizontalAlignment="Center">Go Back</TextBlock></Button>
+        </StackPanel>
+</Window>

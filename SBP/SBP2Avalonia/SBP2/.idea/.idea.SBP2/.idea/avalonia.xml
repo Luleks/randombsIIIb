@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="SBP2/App.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/CreatePomocnik.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/CreateTim.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/HomePageWindow.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/IgrajStazu.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/IgrajStazu1.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/InventoryWindow.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/KlaseUserControls/BoracUserControl.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/KlaseUserControls/CarobnjakUserControl.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/KlaseUserControls/LopovUserControl.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/KlaseUserControls/OklopnikUserControl.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/KlaseUserControls/StrelacUserControl.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/KlaseUserControls/SvestenikUserControl.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/Leaderboards.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/LoginWindow.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/LopovUserControl.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/MainWindow.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/ModifyPomocnik.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/RaseUserControls/CovekUserControl.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/RaseUserControls/DemonUserControl.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/RaseUserControls/OrkUserControl.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/RaseUserControls/PatuljakUserControl.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/RaseUserControls/VilenjakUserControl.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/RegisterLikWindow.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/RegisterWindow.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/ShopWindow.axaml" value="SBP2/SBP2.csproj" />
+        <entry key="SBP2/Views/UpravljanjeTimom.axaml" value="SBP2/SBP2.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SBP2.Views.UpravljanjeTimom"
+        Title="CreateTim">
+    <StackPanel Name="MainContainer" Orientation="Horizontal">
+        <StackPanel Name="Panel1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 20">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="0 10 0 10">Napusti tim</TextBlock>
+            <DataGrid MaxWidth="700" MinWidth="700" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="80" MaxHeight="80" Name="CurrentTimGrid" Margin="0 20 0 10" IsReadOnly="True" AutoGenerateColumns="True" GridLinesVisibility="All" BorderThickness="1" BorderBrush="LimeGreen"></DataGrid>
+            <Button Click="NapustiTim" Margin="0 10 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Red"><TextBlock HorizontalAlignment="Center">Napusti tim</TextBlock></Button>
+            
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
+                <StackPanel Margin="20 0">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="0 40 0 10">Join team</TextBlock>
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 5">Ime tima:</Label>
+                    <TextBox IsEnabled="True" x:Name="ImeToJoinTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                    <Button Click="JoinTeam" HorizontalAlignment="Center" Margin="10 10"><TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Pridruzi se timu</TextBlock></Button>
+                </StackPanel>
+                <StackPanel Margin="20 0">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="0 40 0 10">Nova borba</TextBlock>
+                    <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 5">Ime protivnickog tima:</Label>
+                    <TextBox IsEnabled="True" x:Name="BoriSeTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                    <Button Click="BoriSe" HorizontalAlignment="Center" Margin="10 10"><TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Bori se</TextBlock></Button>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Name="Panel3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20 20">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="0 10 0 10">Create team</TextBlock>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 10 0 5">Ime tima:</Label>
+            <TextBox IsEnabled="True" x:Name="ImeTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 10 0 5">Max igraca:</Label>
+            <NumericUpDown IsEnabled="True" x:Name="MaxClanova" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 10 0 5">BonusXp:</Label>
+            <TextBox IsEnabled="False" x:Name="BonusXpTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+            <Button Click="NapraviTim" HorizontalAlignment="Center" Margin="10 10"><TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Napravi tim</TextBlock></Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

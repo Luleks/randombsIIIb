@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SBP2.Views.ModifyPomocnik"
+        Title="ModifyPomocnik">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 20">Your pomocnik</TextBlock>
+        <Grid Name="LikGrid" ShowGridLines="False"  Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"
+                      ColumnDefinitions="150, 200, 150, 200" 
+                      RowDefinitions="Auto, Auto">
+                        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Ime:</Label>
+                        <TextBox Grid.Row="0" Grid.Column="1" x:Name="ImeTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                        <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Bonus zastita:</Label>
+                        <TextBox IsEnabled="False" Grid.Row="0" Grid.Column="3" x:Name="BonusZastitaTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Rasa:</Label>
+                        <ComboBox IsEnabled="False" SelectedIndex="0" Grid.Row="1" Grid.Column="1" x:Name="RasaComboBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10">
+                            <ComboBoxItem>Covek</ComboBoxItem>
+                            <ComboBoxItem>Patuljak</ComboBoxItem>
+                            <ComboBoxItem>Vilenjak</ComboBoxItem>
+                            <ComboBoxItem>Ork</ComboBoxItem>
+                            <ComboBoxItem>Demon</ComboBoxItem>
+                        </ComboBox>
+                        <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Klasa:</Label>
+                        <ComboBox IsEnabled="False" SelectedIndex="0" Grid.Row="1" Grid.Column="3" x:Name="KlasaComboBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10">
+                            <ComboBoxItem>Lopov</ComboBoxItem>
+                            <ComboBoxItem>Svestenik</ComboBoxItem>
+                            <ComboBoxItem>Carobnjak</ComboBoxItem>
+                            <ComboBoxItem>Oklopnik</ComboBoxItem>
+                            <ComboBoxItem>Borac</ComboBoxItem>
+                            <ComboBoxItem>Strelac</ComboBoxItem>
+                        </ComboBox></Grid>
+        <Button Click="Obrisi" HorizontalAlignment="Center" Margin="0 20 0 0" Width="100"><TextBlock HorizontalAlignment="Center">Obrisi</TextBlock></Button>
+        <Button Click="Sacuvaj" HorizontalAlignment="Center" Margin="0 10 0 0" Width="100"><TextBlock HorizontalAlignment="Center">Sacuvaj</TextBlock></Button>
+        <Button Click="Odustani" HorizontalAlignment="Center" Margin="0 10 0 0" Width="100"><TextBlock HorizontalAlignment="Center">Odustani</TextBlock></Button>
+    </StackPanel>
+</Window>

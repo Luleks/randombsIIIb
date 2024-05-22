@@ -1,0 +1,58 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SBP2.Views.HomePageWindow"
+        WindowStartupLocation="CenterScreen"
+        Closed="SaveSession"
+        Title="HomePageWindow">
+    <StackPanel Name="MainContainer" Orientation="Horizontal">
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Margin="0 20 0 20">Welcome back Player</TextBlock>
+            <Grid HorizontalAlignment="Center" ShowGridLines="False" VerticalAlignment="Center"
+                  ColumnDefinitions="100, 200" 
+                  RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto">
+                        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 5">Username:</Label>
+                        <TextBox IsEnabled="False" Grid.Row="0" Grid.Column="1" x:Name="UsernameTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 5"/>
+                        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 5">Password:</Label>
+                        <TextBox IsEnabled="True" Grid.Row="1" Grid.Column="1" x:Name="PasswordTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 5"/>
+                        <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 5">Ime:</Label>
+                        <TextBox Grid.Row="2" Grid.Column="1" x:Name="ImeTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 5"/>
+                        <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 5">Prezime:</Label>
+                        <TextBox Grid.Row="3" Grid.Column="1" x:Name="PrezimeTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 5"/>
+                        <Label Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 5">Pol:</Label>
+                        <ComboBox SelectedIndex="0" Grid.Row="4" Grid.Column="1" x:Name="PolComboBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 5">
+                                <ComboBoxItem>M</ComboBoxItem>
+                                <ComboBoxItem>F</ComboBoxItem>
+                        </ComboBox>
+                        <Label IsEnabled="True" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 5">Uzrast:</Label>
+                        <NumericUpDown Grid.Row="5" Grid.Column="1" x:Name="UzrastTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 5"/>
+                        
+                        <Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 5">Rasa:</Label>
+                        <TextBox IsEnabled="False" Grid.Row="6" Grid.Column="1" x:Name="RasaTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 5"></TextBox>
+                        <Label Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 5">Klasa:</Label>
+                        <TextBox IsEnabled="False" Grid.Row="7" Grid.Column="1" x:Name="KlasaTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 5"></TextBox>
+                        <Button Click="UpdateIgrac" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8" Grid.Column="1"><TextBlock HorizontalAlignment="Center">Save changes</TextBlock></Button>
+            </Grid>
+            <Button Margin="0 20 0 0" Click="Signout" HorizontalAlignment="Center" VerticalAlignment="Bottom"><TextBlock HorizontalAlignment="Center">Sign out</TextBlock></Button>
+            <Button Click="DeleteIgrac" Background="Red" HorizontalAlignment="Center" VerticalAlignment="Bottom"><TextBlock HorizontalAlignment="Center">Obirisi nalog</TextBlock></Button>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10 0">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="0 10 0 10">Recent activity</TextBlock>
+            <DataGrid HorizontalAlignment="Center"  MinHeight="160" MaxHeight="160" Name="RecentActivityDataGrid" Margin="0 10 0 10" AutoGenerateColumns="True" IsReadOnly="True" GridLinesVisibility="All" BorderThickness="1" BorderBrush="Coral"></DataGrid>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Margin="0 10 0 0">Pomocnici</TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="10" Margin="0 0 0 10">Dvostruki klik na lika za modifikaciju</TextBlock>
+            <DataGrid HorizontalAlignment="Center" MaxWidth="450" MinWidth="450" MinHeight="160" MaxHeight="160" Name="PomocniciDataGrid" Margin="0 10 0 10" IsReadOnly="True" AutoGenerateColumns="True" GridLinesVisibility="All" BorderThickness="1" BorderBrush="Coral"></DataGrid>
+            <Button Click="NoviPomocnik" HorizontalAlignment="Center"><TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Novi pomocnik</TextBlock></Button>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10 0">
+            <Button Click="UpravljanjeTimom" Width="180" Margin="10 10" HorizontalAlignment="Right"><TextBlock HorizontalAlignment="Center">Upravljanje timom</TextBlock></Button>
+            <Button Click="IgrajStazu" Width="180" Margin="10 10" HorizontalAlignment="Right"><TextBlock HorizontalAlignment="Center">Igraj stazu</TextBlock></Button>
+            <Button Click="ShowInventory" Width="180" Margin="10 10" HorizontalAlignment="Right"><TextBlock HorizontalAlignment="Center">Inventory</TextBlock></Button>
+            <Button Click="OtvoriShop" Width="180" Margin="10 10" HorizontalAlignment="Right"><TextBlock HorizontalAlignment="Center">Kupi orudje</TextBlock></Button>
+            <Button Click="OpenLeaderboards" Width="180" Margin="10 10" HorizontalAlignment="Right"><TextBlock HorizontalAlignment="Center">Leaderboards</TextBlock></Button>
+            
+        </StackPanel>
+    </StackPanel>
+</Window>

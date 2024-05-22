@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="914"
+        Height="514"
+        x:Class="SBP2.Views.RegisterLikWindow"
+        WindowStartupLocation="CenterScreen"
+        Title="RegisterLikWindow">
+    <Window.Background><ImageBrush Source="avares://SBP2/Assets/thumb.jpg"/></Window.Background>
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock HorizontalAlignment="Center" FontSize="24" Margin="0 0 0 20">Your character</TextBlock>
+        <Grid Name="LikGrid" ShowGridLines="False"  Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"
+                      ColumnDefinitions="150, 200, 150, 200" 
+                      RowDefinitions="Auto, Auto">
+                        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Stepen zamora:</Label>
+                        <TextBox Foreground="White" Background="FloralWhite" IsEnabled="False" Grid.Row="0" Grid.Column="1" x:Name="StepenZamoraTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                        <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Iskustvo:</Label>
+                        <TextBox Foreground="Black" Background="FloralWhite" IsEnabled="False" Grid.Row="0" Grid.Column="3" x:Name="IskustvoTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Nivo zdravlja:</Label>
+                        <TextBox Foreground="Black" Background="FloralWhite" IsEnabled="False" Grid.Row="1" Grid.Column="1" x:Name="NivoZdravljaTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                        <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 0 10">Zlato:</Label>
+                        <TextBox Foreground="Black" Background="FloralWhite" IsEnabled="False" Grid.Row="1" Grid.Column="3" x:Name="ZlatoTextBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 10"/>
+                </Grid>
+        <Grid Name="MainGrid" ShowGridLines="False"  Margin="5" VerticalAlignment="Center"
+              ColumnDefinitions="300, 300" 
+              RowDefinitions="Auto">
+        </Grid>
+        <Button Background="FloralWhite" Click="Register" HorizontalAlignment="Center" Margin="0 20 0 0" Width="100"><TextBlock HorizontalAlignment="Center">Register</TextBlock></Button>
+        <Button Background="FloralWhite" Click="GoBack" HorizontalAlignment="Center" Margin="0 10 0 0" Width="100"><TextBlock HorizontalAlignment="Center">Go Back</TextBlock></Button>
+    </StackPanel>
+</Window>

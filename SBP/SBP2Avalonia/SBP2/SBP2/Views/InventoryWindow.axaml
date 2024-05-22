@@ -1,0 +1,17 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="914"
+        Height="514"
+        x:Class="SBP2.Views.InventoryWindow"
+        Title="InventoryWindow">
+    <Window.Background><ImageBrush Source="avares://SBP2/Assets/thumb.jpg"/></Window.Background>
+    <StackPanel Name="MainContainer" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Margin="0 20 0 5">Kupljena i pronadjdena orudja</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Margin="0 5 0 20">Dvostruki klik na orudje za prodaju orudja</TextBlock>
+        <DataGrid DoubleTapped="ItemsDataGrid_OnDoubleTapped" Background="White" RowBackground="FloralWhite" HorizontalAlignment="Center" MinHeight="240" MaxHeight="240" Name="ItemsDataGrid" Margin="0 20 0 20" IsReadOnly="True" AutoGenerateColumns="True" GridLinesVisibility="All" BorderThickness="1" BorderBrush="Aqua"></DataGrid>
+    </StackPanel>
+</Window>
