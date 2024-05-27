@@ -1,0 +1,36 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@IgracId = 161
+
+GET {{MmorpgApi_HostAddress}}/JeKupio/PreuzmiKupovine/{{IgracId}}
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/JeKupio/DodajKupovinu HTTP/1.1
+content-type: application/json
+
+{
+  "igrac": {
+    "id": 161
+  },
+  "shoppableorudje": {
+    "id": 9
+  }
+}
+###
+
+POST {{MmorpgApi_HostAddress}}/JeKupio/DodajKupovinu HTTP/1.1
+content-type: application/json
+
+{
+  "igrac": {
+    "id": 161
+  },
+  "shoppableorudje": {
+    "id": 5
+  }
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/JeKupio/ObrisiKupovinu/89 HTTP/1.1
+Content-Type: application/json
+###

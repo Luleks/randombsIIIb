@@ -1,0 +1,33 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@IgracId = 555
+
+GET {{MmorpgApi_HostAddress}}/Lik/PreuzmiLika/{{IgracId}}
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Lik/DodajLika/{{IgracId}} HTTP/1.1
+content-type: application/json
+
+{
+  "stepenZamora": 8,
+  "iskustvo": 550,
+  "nivoZdravlja": 24,
+  "zlato": 1400
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Lik/AzurirajLika/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 203,
+  "stepenZamora": 5,
+  "iskustvo": 5550,
+  "nivoZdravlja": 60,
+  "zlato": 2000
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Lik/ObrisiLika/203 HTTP/1.1
+Content-Type: application/json
+###

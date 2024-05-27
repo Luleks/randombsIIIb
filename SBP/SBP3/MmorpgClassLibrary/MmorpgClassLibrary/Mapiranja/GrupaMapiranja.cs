@@ -12,6 +12,6 @@ internal class GrupaMapiranja : ClassMap<Grupa> {
         Map(x => x.Dummy).Column("DUMMY");
 
         HasMany(x => x.Clanovi).KeyColumn("GRUPA_ID").Cascade.All().Inverse();
-        HasOne(x => x.Igra).PropertyRef(x => x.Grupa).Cascade.None();
+        HasOne(x => x.Igra).PropertyRef(x => x!.Grupa).Cascade.None();
     }
 }

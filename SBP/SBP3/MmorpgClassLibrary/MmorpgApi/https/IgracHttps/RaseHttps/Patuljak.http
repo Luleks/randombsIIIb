@@ -1,0 +1,27 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@LikId = 221
+
+GET {{MmorpgApi_HostAddress}}/Patuljak/PreuzmiPatuljka/183
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Patuljak/DodajPatuljka/{{LikId}} HTTP/1.1
+content-type: application/json
+
+{
+  "oruzje": "sekira"
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Patuljak/AzurirajPatuljka/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 183,
+  "oruzje": "mac"
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Patuljak/ObrisiPatuljka/201 HTTP/1.1
+Content-Type: application/json
+###

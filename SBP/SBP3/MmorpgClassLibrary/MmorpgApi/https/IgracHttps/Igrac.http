@@ -1,0 +1,40 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+
+GET {{MmorpgApi_HostAddress}}/Igrac/PreuzmiIgrace
+Accept: application/json
+###
+
+GET {{MmorpgApi_HostAddress}}/Igrac/PreuzmiIgraca/161
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Igrac/DodajIgraca HTTP/1.1
+content-type: application/json
+
+{
+  "nadimak": "Pera",
+  "lozinka": "PerinaSifra",
+  "pol": "M",
+  "ime": "Petar",
+  "prezime": "Petrovic",
+  "uzrast": 22
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Igrac/AzurirajIgraca HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 222,
+  "nadimak": "Pera",
+  "lozinka": "MojaSifra",
+  "pol": "M",
+  "ime": "Petar",
+  "prezime": "Petrovic",
+  "uzrast": 15
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Igrac/ObrisiIgraca/241 HTTP/1.1
+Content-Type: application/json
+###

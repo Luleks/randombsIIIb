@@ -1,0 +1,33 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@IgracId = 161
+
+GET {{MmorpgApi_HostAddress}}/Sesija/PreuzmiSesije/{{IgracId}}
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Sesija/DodajSesiju/{{IgracId}} HTTP/1.1
+content-type: application/json
+
+{
+  "zlato": 600,
+  "xp": 800,
+  "vreme": "2024-05-24T19:51:00.764Z",
+  "duzina": 15
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Sesija/AzurirajSesiju/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 243,
+  "zlato": 633,
+  "xp": 1000,
+  "vreme": "2024-09-24T19:51:00.764Z",
+  "duzina": 14
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Sesija/ObrisiSesiju/243 HTTP/1.1
+Content-Type: application/json
+###

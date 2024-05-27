@@ -1,0 +1,33 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@IgracId = 161
+
+GET {{MmorpgApi_HostAddress}}/Pomocnik/PreuzmiPomicnike/{{IgracId}}
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Pomocnik/DodajPomicnika/{{IgracId}} HTTP/1.1
+content-type: application/json
+
+{
+  "ime": "Brainer",
+  "rasa": "DEMON",
+  "klasa": "LOPOV",
+  "bonusZastita": 200
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Pomocnik/AzurirajPomicnika/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 83,
+  "ime": "Brain",
+  "rasa": "DEMON",
+  "klasa": "SVESTENIK",
+  "bonusZastita": 500
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Pomocnik/ObrisiPomicnika/82 HTTP/1.1
+Content-Type: application/json
+###

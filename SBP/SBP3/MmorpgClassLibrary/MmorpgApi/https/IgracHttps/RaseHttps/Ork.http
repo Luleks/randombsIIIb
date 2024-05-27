@@ -1,0 +1,27 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@LikId = 221
+
+GET {{MmorpgApi_HostAddress}}/Ork/PreuzmiOrka/202
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Ork/DodajOrka/{{LikId}} HTTP/1.1
+content-type: application/json
+
+{
+  "oruzje": "sekira"
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Ork/AzurirajOrka/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 202,
+  "oruzje": "mac"
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Ork/ObrisiOrka/202 HTTP/1.1
+Content-Type: application/json
+###

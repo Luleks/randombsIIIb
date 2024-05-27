@@ -1,0 +1,30 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+
+GET {{MmorpgApi_HostAddress}}/Oklop/PreuzmiOklope
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Oklop/DodajOklop HTTP/1.1
+content-type: application/json
+
+{
+  "naziv": "Boots",
+  "opis": "Boots said to belong to macak u cizmama",
+  "poeniZaOdbranu": 256
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Oklop/AzurirajOklop HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 47,
+  "naziv": "Boots",
+  "opis": "Boots said to belong to macak u cizmama",
+  "poeniZaOdbranu": 258
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Oklop/ObrisiOklop/47 HTTP/1.1
+Content-Type: application/json
+###

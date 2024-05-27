@@ -3,7 +3,7 @@ using MmorpgClassLibrary.Entiteti;
 namespace MmorpgClassLibrary.DTOs;
 
 public class IgracView {
-    public int Id { get; protected set; }
+    public int Id { get; set; }
     public string? Nadimak { get; set; }
     public string? Lozinka { get; set; }
     public char? Pol { get; set; }
@@ -18,6 +18,9 @@ public class IgracView {
     public IList<PosedujeView>? KljucniPredmeti { get; set; } = [];
     public IList<GroupMembershipView>? Grupe { get; set; } = [];
 
+    public IgracView() {
+    }
+
     internal IgracView(Igrac? i) {
         if (i == null)
             return;
@@ -28,5 +31,6 @@ public class IgracView {
         Ime = i.Ime;
         Prezime = i.Prezime;
         Uzrast = i.Uzrast;
+        Lik = new LikView(i.Lik);
     }
 }

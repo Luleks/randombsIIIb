@@ -1,0 +1,32 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+
+GET {{MmorpgApi_HostAddress}}/Tim/PreuzmiTimove
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Tim/DodajTim HTTP/1.1
+content-type: application/json
+
+{
+  "naziv": "Majstori",
+  "minIgraca": 10,
+  "maxIgraca": 20,
+  "bonusXp": 500
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Tim/AzurirajTim HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 103,
+  "naziv": "NisuMajstori",
+  "minIgraca": 10,
+  "maxIgraca": 20,
+  "bonusXp": 500
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Tim/ObrisiTim/103 HTTP/1.1
+Content-Type: application/json
+###

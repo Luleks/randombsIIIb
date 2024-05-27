@@ -1,0 +1,6 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@IgracId = 161
+
+GET {{MmorpgApi_HostAddress}}/Orudje/PreuzmiInventory/{{IgracId}}
+Accept: application/json
+##

@@ -1,0 +1,40 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@IgracId = 161
+@TimId = 43
+
+GET {{MmorpgApi_HostAddress}}/TeamMembership/PreuzmiClanoveTima/{{TimId}}
+Accept: application/json
+###
+
+GET {{MmorpgApi_HostAddress}}/TeamMembership/PreuzmiIstorijuTimovaIgraca/{{IgracId}}
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/TeamMembership/DodajClanstvo/ HTTP/1.1
+content-type: application/json
+
+{
+  "vremeOd": "2024-05-24T20:03:21.407Z",
+  "vremeDo": null,
+  "igrac": {
+    "id": 161
+  },
+  "tim": {
+    "id": 43
+  }
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/TeamMembership/AzurirajClanstvo/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 83,
+  "vremeOd": "2024-05-24T20:03:21.407Z",
+  "vremeDo": "2024-06-22T20:03:21.407Z"
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/TeamMembership/ObrisiClanstvo/82 HTTP/1.1
+Content-Type: application/json
+###

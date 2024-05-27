@@ -3,7 +3,7 @@ using MmorpgClassLibrary.Entiteti;
 namespace MmorpgClassLibrary.DTOs;
 
 public class LikView {
-    public int Id { get; protected set; }
+    public int Id { get; set; }
     public int? StepenZamora { get; set; }
     public int? Iskustvo { get; set; }
     public int? NivoZdravlja { get; set; }
@@ -23,9 +23,50 @@ public class LikView {
         Iskustvo = l.Iskustvo;
         NivoZdravlja = l.NivoZdravlja;
         Zlato = l.Zlato;
+        InitRasa(l.Rasa);
+        InitKlasa(l.Klasa);
     }
 
-    internal LikView(Lik? l, Rasa? r, Klasa? k, Igrac? i) : this(l) {
-        
+    private void InitRasa(Rasa? r) {
+        if (r == null)
+            return;
+        if (r is Covek covek) {
+            Rasa = new CovekView(covek);
+        }
+        else if (r is Demon demon) {
+            Rasa = new DemonView(demon);
+        }
+        else if (r is Ork ork) {
+            Rasa = new OrkView(ork);
+        }
+        else if (r is Patuljak patuljak) {
+            Rasa = new PatuljakView(patuljak);
+        }
+        else if (r is Vilenjak vilenjak) {
+            Rasa = new VilenjakView(vilenjak);
+        }
+    }
+
+    private void InitKlasa(Klasa? k) {
+        if (k == null)
+            return;
+        if (k is Strelac strelac) {
+            Klasa = new StrelacView(strelac);
+        }
+        else if (k is Borac borac) {
+            Klasa = new BoracView(borac);
+        }
+        else if (k is Oklopnik oklopnik) {
+            Klasa = new OklopnikView(oklopnik);
+        }
+        else if (k is Carobnjak carobnjak) {
+            Klasa = new CarobnjakView(carobnjak);
+        } 
+        else if (k is Svestenik svestenik) {
+            Klasa = new SvestenikView(svestenik);
+        }
+        else if (k is Lopov lopov) {
+            Klasa = new LopovView(lopov);
+        }
     }
 }

@@ -1,0 +1,27 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@LikId = 222
+
+GET {{MmorpgApi_HostAddress}}/Carobnjak/PreuzmiCarobnjaka/207
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Carobnjak/DodajCarobnjaka/{{LikId}} HTTP/1.1
+content-type: application/json
+
+{
+  "magije": "CrnaKletva"
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Carobnjak/AzurirajCarobnjaka/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 207,
+  "magije": "BelaKletva"
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Carobnjak/ObrisiCarobnjaka/207 HTTP/1.1
+Content-Type: application/json
+###

@@ -1,0 +1,29 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@LikId = 221
+
+GET {{MmorpgApi_HostAddress}}/Lopov/PreuzmiLopova/207
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Lopov/DodajLopova/{{LikId}} HTTP/1.1
+content-type: application/json
+
+{
+  "nivoZamki": 50,
+  "nivoBuke": 50
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Lopov/AzurirajLopova/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 207,
+  "nivoZamki": 40,
+  "nivoBuke": 70
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Lopov/ObrisiLopova/207 HTTP/1.1
+Content-Type: application/json
+###

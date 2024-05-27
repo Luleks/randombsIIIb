@@ -14,8 +14,8 @@ internal class LikMapiranja : ClassMap<Lik> {
         Map(x => x.StepenZamora).Column("STEPEN_ZAMORA");
         Map(x => x.Zlato).Column("ZLATO");
 
-        HasOne(x => x.Rasa).PropertyRef(x => x.Lik).Cascade.None().Not.LazyLoad();
-        HasOne(x => x.Klasa).PropertyRef(x => x.Lik).Cascade.None().Not.LazyLoad();
-        References(x => x.Igrac).Column("IGRAC_ID");
+        HasOne(x => x.Rasa).PropertyRef(x => x!.Lik).Cascade.None().Not.LazyLoad();
+        HasOne(x => x.Klasa).PropertyRef(x => x!.Lik).Cascade.None().Not.LazyLoad();
+        References(x => x.Igrac).Column("IGRAC_ID").LazyLoad();
     }
 }

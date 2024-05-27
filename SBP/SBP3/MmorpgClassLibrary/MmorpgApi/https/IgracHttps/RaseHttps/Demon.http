@@ -1,0 +1,27 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@LikId = 221
+
+GET {{MmorpgApi_HostAddress}}/Demon/PreuzmiDemona/203
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Demon/DodajDemona/{{LikId}} HTTP/1.1
+content-type: application/json
+
+{
+  "nivoPotrebneMagije": 25
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Demon/AzurirajDemona/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 203,
+  "nivoPotrebneMagije": 50
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Demon/ObrisiDemona/203 HTTP/1.1
+Content-Type: application/json
+###

@@ -1,0 +1,24 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@IgracId = 161
+@PredmetId = 6
+
+GET {{MmorpgApi_HostAddress}}/Poseduje/PreuzmiPosedovanja/{{IgracId}}
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Poseduje/DodajPosedovanje HTTP/1.1
+content-type: application/json
+
+{
+  "igrac": {
+    "id": 161
+  },
+  "kljucniPredmet": {
+    "id": 6
+  }
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Poseduje/ObrisiPosedovanje/26 HTTP/1.1
+Content-Type: application/json
+###

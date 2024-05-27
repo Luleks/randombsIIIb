@@ -1,0 +1,27 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@OrudjeId = 5
+
+GET {{MmorpgApi_HostAddress}}/OrudjeRestrictionRasa/PreuzmiOgranicenjaOrudja/{{OrudjeId}}
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/OrudjeRestrictionRasa/DodajOgranicenjeOrudja/{{OrudjeId}} HTTP/1.1
+content-type: application/json
+
+{
+  "rasa": "DEMON"
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/OrudjeRestrictionRasa/AzurirajOgranicenjeOrudja HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 25,
+  "rasa": "PATULJAK"
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/OrudjeRestrictionRasa/ObrisiOgranicenjeOrudja/25 HTTP/1.1
+Content-Type: application/json
+###

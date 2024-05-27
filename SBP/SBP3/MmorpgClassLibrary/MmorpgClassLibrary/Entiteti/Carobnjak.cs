@@ -1,5 +1,5 @@
 namespace MmorpgClassLibrary.Entiteti;
 
 internal class Carobnjak : Klasa {
-    protected internal virtual required string Magije { get; set; }
+    protected internal virtual string? Magije { get; set; }
 }

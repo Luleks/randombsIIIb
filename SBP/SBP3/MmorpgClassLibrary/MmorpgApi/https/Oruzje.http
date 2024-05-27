@@ -1,0 +1,32 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+
+GET {{MmorpgApi_HostAddress}}/Oruzje/PreuzmiOruzja
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Oruzje/DodajOruzje HTTP/1.1
+content-type: application/json
+
+{
+  "naziv": "Buzdovan",
+  "opis": "Buzdovan Kraljevica Marka",
+  "poeniZaNapad": 999,
+  "dodatniXp": 5000
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Oruzje/AzurirajOruzje HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 44,
+  "naziv": "Buzdovan",
+  "opis": "Buzdovan Kraljevica Marka",
+  "poeniZaNapad": 999,
+  "dodatniXp": 10000
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Oruzje/ObrisiOruzje/44 HTTP/1.1
+Content-Type: application/json
+###

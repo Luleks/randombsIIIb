@@ -1,0 +1,27 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@LikId = 221
+
+GET {{MmorpgApi_HostAddress}}/Covek/PreuzmiCoveka/205
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Covek/DodajCoveka/{{LikId}} HTTP/1.1
+content-type: application/json
+
+{
+  "skrivanje": 25
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Covek/AzurirajCoveka/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 205,
+  "skrivanje": 50
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Covek/ObrisiCoveka/205 HTTP/1.1
+Content-Type: application/json
+###

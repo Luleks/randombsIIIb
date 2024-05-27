@@ -2,7 +2,7 @@ using MmorpgClassLibrary.Entiteti;
 
 namespace MmorpgClassLibrary.DTOs;
 
-public abstract class RasaView {
+public class RasaView {
     public int Id { get; set; }
     public LikView? Lik { get; set; }
 

@@ -1,0 +1,32 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+
+GET {{MmorpgApi_HostAddress}}/Predmet/PreuzmiPredmete
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Predmet/DodajPredmet HTTP/1.1
+content-type: application/json
+
+{
+  "naziv": "Flying potion",
+  "opis": "Potion that grants ability to fly",
+  "dodatniXp": 200,
+  "kljucniPredmet": true
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Predmet/AzurirajPredmet HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 45,
+  "naziv": "Flying potion",
+  "opis": "Potion that grants ability to fly",
+  "dodatniXp": 200,
+  "kljucniPredmet": false
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Predmet/ObrisPredmet/45 HTTP/1.1
+Content-Type: application/json
+###

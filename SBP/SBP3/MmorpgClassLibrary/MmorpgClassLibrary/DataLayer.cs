@@ -1,7 +1,6 @@
-using System.Configuration;
+using System.Reflection;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
-using MmorpgClassLibrary.Mapiranja;
 using NHibernate;
 
 namespace MmorpgClassLibrary;
@@ -23,16 +22,14 @@ internal static class DataLayer {
 
     private static ISessionFactory? CreateSessionFactory()
     {
-        try
-        {
-            string cs = ConfigurationManager.ConnectionStrings["OracleCS"].ConnectionString;
+        try {
             var cfg = OracleManagedDataClientConfiguration.Oracle10
-                .ShowSql()
-                .ConnectionString(c => c.Is(cs));
+                .ConnectionString(c =>
+                    c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S18630;Password=S18630"));
 
             return Fluently.Configure()
                 .Database(cfg)
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<IgracMapiranja>())
+                .Mappings(m => m.FluentMappings.AddFromAssembly(Assembly.GetExecutingAssembly()))
                 .BuildSessionFactory();
         }
         catch (Exception e)

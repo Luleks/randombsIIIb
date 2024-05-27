@@ -2,8 +2,8 @@ using MmorpgClassLibrary.Entiteti;
 
 namespace MmorpgClassLibrary.DTOs;
 
-public abstract class KlasaView {
-    public int Id { get; protected set; }
+public class KlasaView {
+    public int Id { get; set; }
     public LikView? Lik { get; set; }
 
     public KlasaView() {

@@ -1,0 +1,32 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+
+GET {{MmorpgApi_HostAddress}}/Staza/PreuzmiStaze
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Staza/DodajStazu HTTP/1.1
+content-type: application/json
+
+{
+  "naziv": "Hounted House",
+  "bonusXp": 6000,
+  "timskaStaza": 0,
+  "restrictedStaza": 0
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Staza/AzurirajStazu HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 43,
+  "naziv": "Hounted House",
+  "bonusXp": 6000,
+  "timskaStaza": 1,
+  "restrictedStaza": 0
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Staza/ObrisiStazu/43 HTTP/1.1
+Content-Type: application/json
+###

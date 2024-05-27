@@ -1,0 +1,29 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@LikId = 222
+
+GET {{MmorpgApi_HostAddress}}/Borac/PreuzmiBorca/207
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Borac/DodajBorca/{{LikId}} HTTP/1.1
+content-type: application/json
+
+{
+  "koristiStit": 0,
+  "dualWielder": 0
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Borac/AzurirajBorca/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 207,
+  "koristiStit": 1,
+  "dualWielder": 0
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Borac/ObrisiBorca/207 HTTP/1.1
+Content-Type: application/json
+###

@@ -1,0 +1,27 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@LikId = 221
+
+GET {{MmorpgApi_HostAddress}}/Vilenjak/PreuzmiVilenjaka/204
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/Vilenjak/DodajVilenjaka/{{LikId}} HTTP/1.1
+content-type: application/json
+
+{
+  "nivoPotrebneMagije": 25
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/Vilenjak/AzurirajVilenjaka/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 204,
+  "nivoPotrebneMagije": 50
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/Vilenjak/ObrisiVilenjaka/204 HTTP/1.1
+Content-Type: application/json
+###

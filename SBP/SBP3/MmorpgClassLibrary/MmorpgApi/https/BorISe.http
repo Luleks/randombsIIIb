@@ -1,0 +1,40 @@
+@MmorpgApi_HostAddress = https://localhost:7250
+@Tim1Id = 41
+@Tim2Id = 42
+
+
+GET {{MmorpgApi_HostAddress}}/BoriSe/PreuzmiBorbe/
+Accept: application/json
+###
+
+POST {{MmorpgApi_HostAddress}}/BoriSe/DodajBorbu/ HTTP/1.1
+content-type: application/json
+
+{
+  "vreme": "2024-05-24T20:08:35.388Z",
+  "bonus": 0,
+  "tim1": {
+    "id": 41
+  },
+  "tim2": {
+    "id": 42
+  },
+  "pobednik": {
+    "id": 41
+  }
+}
+###
+
+PUT {{MmorpgApi_HostAddress}}/BoriSe/AzurirajBorbu/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 83,
+  "vreme": "2024-08-24T20:08:35.388Z",
+  "bonus": 200
+}
+###
+
+DELETE {{MmorpgApi_HostAddress}}/BoriSe/ObrisiBorbu/83 HTTP/1.1
+Content-Type: application/json
+###
