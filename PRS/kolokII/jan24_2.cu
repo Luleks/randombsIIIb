@@ -101,5 +101,4 @@ int main() {
     }
 
     free(tacke);
-
 }
