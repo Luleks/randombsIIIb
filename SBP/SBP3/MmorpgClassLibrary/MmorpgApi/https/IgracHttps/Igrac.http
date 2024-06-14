@@ -25,7 +25,7 @@ PUT {{MmorpgApi_HostAddress}}/Igrac/AzurirajIgraca HTTP/1.1
 Content-Type: application/json
 
 {
-  "id": 222,
+  "id": 261,
   "nadimak": "Pera",
   "lozinka": "MojaSifra",
   "pol": "M",
@@ -35,6 +35,6 @@ Content-Type: application/json
 }
 ###
 
-DELETE {{MmorpgApi_HostAddress}}/Igrac/ObrisiIgraca/241 HTTP/1.1
+DELETE {{MmorpgApi_HostAddress}}/Igrac/ObrisiIgraca/261 HTTP/1.1
 Content-Type: application/json
 ###
