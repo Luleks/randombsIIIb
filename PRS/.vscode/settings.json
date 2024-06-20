@@ -4,6 +4,7 @@
     "stdio.h": "c",
     "numeric": "cpp",
     "random": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "limits": "c"
   }
 }
