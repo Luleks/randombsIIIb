@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekat1", "Projekat1\Projekat1.csproj", "{317C9AFC-CC4A-49CB-9909-68D96DB4D93C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekat2", "Projekat2\Projekat2.csproj", "{97002DCB-136D-46DA-948A-6F585066CD8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekat3", "Projekat3\Projekat3.csproj", "{88C88945-05EC-43E8-BBFD-4A8B22288007}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{317C9AFC-CC4A-49CB-9909-68D96DB4D93C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317C9AFC-CC4A-49CB-9909-68D96DB4D93C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317C9AFC-CC4A-49CB-9909-68D96DB4D93C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317C9AFC-CC4A-49CB-9909-68D96DB4D93C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97002DCB-136D-46DA-948A-6F585066CD8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97002DCB-136D-46DA-948A-6F585066CD8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97002DCB-136D-46DA-948A-6F585066CD8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97002DCB-136D-46DA-948A-6F585066CD8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88C88945-05EC-43E8-BBFD-4A8B22288007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88C88945-05EC-43E8-BBFD-4A8B22288007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88C88945-05EC-43E8-BBFD-4A8B22288007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88C88945-05EC-43E8-BBFD-4A8B22288007}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
