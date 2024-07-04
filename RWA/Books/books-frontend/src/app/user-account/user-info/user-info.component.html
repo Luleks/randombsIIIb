@@ -1,0 +1,84 @@
+<div class="user-info-container">
+  <div class="profile-picture">
+    <img [src]="this.avatar" alt="Profile Picture" />
+  </div>
+
+  <form [formGroup]="userInfoForm" (ngSubmit)="saveChanges()">
+    <div class="form-fields">
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>New Password</mat-label>
+          <input matInput type="password" formControlName="password" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-column">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Repeat Password</mat-label>
+          <input matInput type="password" formControlName="repeatPassword" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="categories">
+      <h3>Categories</h3>
+      <div class="categories-list">
+        <div
+          *ngFor="let category of categories; let i = index"
+          class="category-item"
+        >
+          <span>{{ category }}</span>
+          <button
+            type="button"
+            mat-icon-button
+            color="warn"
+            (click)="removeCategory(i)"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="new-category-container">
+        <mat-form-field appearance="fill" class="new-category">
+          <mat-label>New Category</mat-label>
+          <input matInput formControlName="newCategory" />
+        </mat-form-field>
+        <button
+          type="button"
+          mat-raised-button
+          color="primary"
+          (click)="addCategory()"
+        >
+          Add Category
+        </button>
+      </div>
+    </div>
+
+    <div class="save-button-container">
+      <button mat-raised-button color="primary" type="submit">
+        Save Changes
+      </button>
+    </div>
+  </form>
+</div>

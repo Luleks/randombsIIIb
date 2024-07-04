@@ -1,0 +1,97 @@
+.book-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: row;
+  background-color: #f9f9f9;
+}
+
+.book-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-right: 1px solid #eee;
+}
+
+.book-cover {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.book-header {
+  text-align: center;
+}
+
+.book-header mat-card-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+.book-header mat-card-subtitle {
+  font-size: 1em;
+  color: #666;
+}
+
+.book-right {
+  flex: 2;
+  padding: 20px;
+}
+
+mat-card-content p {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #555;
+}
+
+mat-card-content p strong {
+  color: #333;
+}
+
+mat-card-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.action-button {
+  margin-right: 10px;
+  text-transform: none;
+  font-size: 1em;
+}
+
+.action-button[color="primary"] {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.action-button[color="primary"]:hover {
+  background-color: #0056b3;
+}
+
+.action-button[color="accent"] {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.action-button[color="accent"]:hover {
+  background-color: #117a8b;
+}

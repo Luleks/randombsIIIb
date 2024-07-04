@@ -1,0 +1,8 @@
+<div class="review-list" *ngIf="reviews">
+  <div class="review-item" *ngFor="let review of reviews">
+    <span class="review-comment">{{ review.comment }}</span>
+    <button mat-raised-button color="warn" (click)="removeReview(review.id)">
+      Remove
+    </button>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <span>BooksArchive</span>
+  <button mat-button (click)="navigate('')">Home</button>
+  <button mat-button>Explore</button>
+  <span class="spacer"></span>
+  <button mat-button (click)="navigate('faq')">FAQ</button>
+  <button mat-button (click)="navigate('privacy')">Privacy Policy</button>
+  <ng-container *ngIf="user$ | async as user; else loginButton">
+    <button mat-button (click)="navigate('account')">
+      {{ user.username }}
+    </button>
+    <button mat-button (click)="logout()">Logout</button>
+  </ng-container>
+</mat-toolbar>
+<ng-template #loginButton>
+  <button mat-button (click)="navigate('login')">Login</button>
+</ng-template>

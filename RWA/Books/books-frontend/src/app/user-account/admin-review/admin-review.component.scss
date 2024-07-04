@@ -1,0 +1,15 @@
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-comment {
+  flex-grow: 1;
+}

@@ -1,0 +1,19 @@
+<div
+  *ngIf="downloadedBooks$ | async as downloadedBooks"
+  class="books-container"
+>
+  <div *ngFor="let book of downloadedBooks" class="book-card">
+    <a
+      (click)="
+        $event.preventDefault(); this.router.navigate(['books', book.id])
+      "
+    >
+      <mat-card>
+        <img mat-card-image [src]="book.cover" alt="Book Cover" />
+        <mat-card-content>
+          <p>{{ book.title }}</p>
+        </mat-card-content>
+      </mat-card>
+    </a>
+  </div>
+</div>

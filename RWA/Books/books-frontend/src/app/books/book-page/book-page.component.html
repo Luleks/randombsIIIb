@@ -1,0 +1,58 @@
+<div>
+  <div *ngIf="book" class="book-container">
+    <mat-card class="book-card">
+      <div class="book-details">
+        <div class="book-left">
+          <img
+            mat-card-image
+            [src]="book.cover"
+            alt="{{ book.title }}"
+            class="book-cover"
+          />
+          <mat-card-header class="book-header">
+            <mat-card-title>{{ book.title }}</mat-card-title>
+            <mat-card-subtitle>ISBN: {{ book.isbn }}</mat-card-subtitle>
+          </mat-card-header>
+        </div>
+        <div class="book-right">
+          <mat-card-content>
+            <p><strong>Authors:</strong> {{ book.authors.join(", ") }}</p>
+            <p><strong>Year:</strong> {{ book.year }}</p>
+            <p><strong>Number of Pages:</strong> {{ book.numPages }}</p>
+            <p><strong>Categories:</strong> {{ book.categories.join(", ") }}</p>
+            <p>
+              <strong>Number of Downloads:</strong> {{ book.numberOfDownloads }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <a
+              mat-button
+              color="primary"
+              [href]="book.paperbackLink"
+              target="_blank"
+              class="action-button"
+              >Buy Paperback</a
+            >
+            <a
+              mat-button
+              color="accent"
+              [href]="book.pdfFile"
+              target="_blank"
+              class="action-button"
+              (click)="newDownload()"
+              >Download PDF</a
+            >
+          </mat-card-actions>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <app-comment
+    [comments]="book.comments"
+    [access_token]="this.access_token"
+    [userId]="this.userId"
+    [userAvatar]="this.avatar"
+    [username]="this.username"
+    [bookId]="this.book.id"
+  ></app-comment>
+</div>

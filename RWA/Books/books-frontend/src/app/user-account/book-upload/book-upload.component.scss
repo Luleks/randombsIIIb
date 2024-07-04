@@ -1,0 +1,80 @@
+.user-info-container {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  width: 1200px;
+}
+
+mat-card {
+  width: 100%;
+  padding: 24px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fixed-width {
+  flex: 0 0 40%;
+}
+
+.authors-section,
+.categories-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.author-row,
+.category-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+mat-form-field {
+  flex: 1;
+  margin-bottom: 8px;
+  margin-top: 0px;
+}
+
+.mat-form-field-infix {
+  padding: 0 8px;
+}
+
+.mat-input-element {
+  height: 16px;
+  line-height: 16px;
+}
+
+button[mat-icon-button] {
+  margin-top: 0;
+  padding: 0;
+}
+
+button[mat-button] {
+  align-self: flex-start;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+button[type="submit"] {
+  margin: 0 auto;
+}
+
+.mb0 {
+  margin-bottom: 0px;
+}

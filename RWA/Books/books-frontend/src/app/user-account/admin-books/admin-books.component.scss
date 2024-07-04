@@ -1,0 +1,21 @@
+.book-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.book-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.book-cover {
+  width: 50px;
+  height: 75px;
+  object-fit: cover;
+}
+
+.book-name {
+  flex-grow: 1;
+}

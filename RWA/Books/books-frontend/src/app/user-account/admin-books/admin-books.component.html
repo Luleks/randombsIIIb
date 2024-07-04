@@ -1,0 +1,9 @@
+<div class="book-list" *ngIf="books">
+  <div class="book-item" *ngFor="let book of books">
+    <img [src]="book.cover" alt="{{ book.title }} cover" class="book-cover" />
+    <span class="book-name">{{ book.title }}</span>
+    <button mat-raised-button color="warn" (click)="removeBook(book.id!)">
+      Remove
+    </button>
+  </div>
+</div>

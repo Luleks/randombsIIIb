@@ -1,0 +1,79 @@
+.user-info-container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.profile-picture {
+  margin-right: 20px;
+}
+
+.profile-picture img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  min-width: 600px;
+  max-width: 600px;
+}
+
+.form-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
+.categories {
+  margin-top: 20px;
+}
+
+.categories h3 {
+  margin-bottom: 10px;
+}
+
+.categories-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  background: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.category-item span {
+  margin-right: 10px;
+}
+
+.new-category-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.save-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  align-self: center;
+}

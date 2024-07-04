@@ -1,0 +1,18 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background: rgb(4, 26, 51);
+  background: linear-gradient(
+    250deg,
+    rgba(4, 26, 51, 1) 0%,
+    rgba(112, 163, 219, 1) 70%
+  );
+  color: white;
+  margin: 0px;
+}
+
+button[mat-button] {
+  color: white;
+}

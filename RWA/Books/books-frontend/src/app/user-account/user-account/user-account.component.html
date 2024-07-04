@@ -1,0 +1,27 @@
+<ng-container *ngIf="userType === 'user'">
+  <mat-tab-group>
+    <mat-tab label="User Info">
+      <app-user-info></app-user-info>
+    </mat-tab>
+    <mat-tab label="Upload book">
+      <app-book-upload></app-book-upload>
+    </mat-tab>
+    <mat-tab label="Uploaded books">
+      <app-uploaded-books></app-uploaded-books>
+    </mat-tab>
+    <mat-tab label="Downloaded books">
+      <app-downloaded-books></app-downloaded-books>
+    </mat-tab>
+  </mat-tab-group>
+</ng-container>
+
+<ng-container *ngIf="userType === 'admin'">
+  <mat-tab-group>
+    <mat-tab label="Books">
+      <app-admin-books></app-admin-books>
+    </mat-tab>
+    <mat-tab label="Comments">
+      <app-admin-review></app-admin-review>
+    </mat-tab>
+  </mat-tab-group>
+</ng-container>

@@ -1,0 +1,107 @@
+<div class="user-info-container">
+  <mat-card>
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+      <div class="form-container">
+        <div class="form-column fixed-width">
+          <mat-form-field appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>ISBN</mat-label>
+            <input matInput formControlName="isbn" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Number of Pages</mat-label>
+            <input matInput type="number" formControlName="numPages" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Paperback Link</mat-label>
+            <input matInput formControlName="paperbackLink" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Year</mat-label>
+            <input matInput type="number" formControlName="year" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>PDF File URL</mat-label>
+            <input matInput formControlName="pdfFile" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Cover Image URL</mat-label>
+            <input matInput formControlName="cover" />
+          </mat-form-field>
+        </div>
+        <div class="form-column">
+          <div class="authors-section">
+            <mat-label>Authors</mat-label>
+            <ng-container formArrayName="authors">
+              <div
+                *ngFor="let author of authors.controls; let i = index"
+                class="author-row"
+                [formGroupName]="i"
+              >
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    formControlName="name"
+                    placeholder="Author Name"
+                  />
+                </mat-form-field>
+                <button
+                  mat-icon-button
+                  (click)="$event.preventDefault(); removeAuthor(i)"
+                >
+                  <mat-icon>remove_circle</mat-icon>
+                </button>
+              </div>
+            </ng-container>
+            <button
+              mat-button
+              (click)="$event.preventDefault(); addAuthor()"
+              [disabled]="authors.length >= 5"
+            >
+              <mat-icon>add_circle</mat-icon> Add Author
+            </button>
+          </div>
+        </div>
+        <div class="form-column">
+          <div class="categories-section">
+            <mat-label>Categories</mat-label>
+            <ng-container formArrayName="categories">
+              <div
+                *ngFor="let category of categories.controls; let i = index"
+                class="category-row"
+                [formGroupName]="i"
+              >
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    formControlName="name"
+                    placeholder="Category Name"
+                  />
+                </mat-form-field>
+                <button
+                  mat-icon-button
+                  (click)="$event.preventDefault(); removeCategory(i)"
+                >
+                  <mat-icon>remove_circle</mat-icon>
+                </button>
+              </div>
+            </ng-container>
+            <button
+              mat-button
+              (click)="$event.preventDefault(); addCategory()"
+              [disabled]="categories.length >= 5"
+            >
+              <mat-icon>add_circle</mat-icon> Add Category
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="submit-container">
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

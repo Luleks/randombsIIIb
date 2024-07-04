@@ -1,0 +1,32 @@
+<div class="filter-and-list">
+  <app-filter (filterChange)="onFilterChange($event)"></app-filter>
+
+  <div *ngIf="books.length > 0" class="books-container">
+    <div *ngFor="let book of books" class="book-card">
+      <a
+        (click)="
+          $event.preventDefault(); this.router.navigate(['books', book.id])
+        "
+      >
+        <mat-card>
+          <img mat-card-image [src]="book.cover" alt="Book Cover" />
+          <mat-card-content>
+            <p>{{ book.title }}</p>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    </div>
+  </div>
+  <div *ngIf="books.length === 0" class="no-books">
+    <p>No books available.</p>
+  </div>
+
+  <div class="paginator-container">
+    <mat-paginator
+      [length]="length"
+      [pageSize]="limit"
+      (page)="onPageChange($event.pageIndex + 1)"
+    >
+    </mat-paginator>
+  </div>
+</div>
