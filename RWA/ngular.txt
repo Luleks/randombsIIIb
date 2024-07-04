@@ -1,0 +1,52 @@
+NGFOR:
+<div *ngFor="let item of items; index as ii"></div>
+
+NGIF:
+<div *ngIf="USLOV"></div>
+
+NGTEMPLATE
+<div *ngIf="USLOV; then templ1 else templ2></div>
+
+<ng-template #templ1></ng-template>
+
+
+BINDING DATA:
+<input class="checkbox" type="checkbox" [checked]="item.isComplete" [attr.data-index]="ii"/>
+isComplete - binding to js
+attr.data-index - binding to html
+
+BINDING EVENT:
+<div (click)="something($event || item)"></div>
+
+
+<input name="some-name" type="text" [(ngModel)]="newWishText" />
+(ngModelChange)="filterChanged($event)" <- when model changes, event contains new value of model
+
+filter je implementirao kao geter
+
+
+
+ULAZNI PARAMETAR za komponentu
+ng generate component ime_komponente
+
+@Input() -> ulazni param u komponentu
+
+@Output() addWish = new EventEmitter<WishItem>();
+
+newWishText = '';
+
+addNewWish() {
+this.addWish.emit(new WishItem(this.newWishText));
+this.newWishText = '';
+} -> izlazni param iz komponente
+
+ngOnInit() : void {
+}
+
+two way binding input-output (1:48:24)
+
+
+npm run migration:generate -- db/migrations/V4
+npm run migration:run
+
+books/add/uid + 
